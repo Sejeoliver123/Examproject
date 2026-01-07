@@ -1,16 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.VBox?>
-
 <?import javafx.scene.control.Button?>
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="org.example.examproject.GUI.MainController">
-    <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
-    </padding>
+<?import javafx.scene.control.TreeTableColumn?>
+<?import javafx.scene.control.TreeTableView?>
+<?import javafx.scene.layout.AnchorPane?>
 
-    <Label fx:id="welcomeText"/>
-    <Button text="Hello!" onAction="#onHelloButtonClick"/>
-</VBox>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="460.0" prefWidth="677.0" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.examproject.GUI.MainController">
+   <children>
+      <Button layoutY="1.0" mnemonicParsing="false" onAction="#onMovieAdd" prefHeight="22.0" prefWidth="135.0" text="Add Movie" />
+      <Button layoutX="135.0" layoutY="1.0" mnemonicParsing="false" onAction="#onCategoryAdd" prefHeight="25.0" prefWidth="135.0" text="Add Category" />
+      <TreeTableView fx:id="tbvMovie" layoutX="375.0" prefHeight="316.0" prefWidth="301.0">
+        <columns>
+          <TreeTableColumn fx:id="tbvCollumTitle" prefWidth="75.0" text="Title" />
+            <TreeTableColumn fx:id="tbvCollumUserScore" prefWidth="75.0" text="User Score" />
+            <TreeTableColumn fx:id="tbvCollumIMDBscore" prefWidth="75.0" text="IMDB" />
+          <TreeTableColumn fx:id="tbvCollumCategory" prefWidth="75.0" text="Category" />
+        </columns>
+      </TreeTableView>
+   </children>
+</AnchorPane>
