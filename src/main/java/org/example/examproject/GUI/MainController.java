@@ -26,6 +26,15 @@ public class MainController {
 
     @FXML
     private void onCategoryAdd(ActionEvent actionEvent) {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/examproject/CategoryCreation-view.fxml"));
+        try {
+            Scene scene = new Scene(fxmlLoader.load());
+            Stage stage = new Stage();
+            stage.setScene(scene);
+            stage.show();
+        } catch (Exception e){
+
+        }
 
     }
 }
