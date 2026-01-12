@@ -9,7 +9,12 @@ public class MovieCreationController {
     @FXML
     private AnchorPane txtTitle;
     @FXML
-    private TextField txtÅrstal;
+    private TextField txtIMDBrating;
     @FXML
     private Button btnAddMovie;
+    @FXML
+    private TextField txtFilelink;
+
+    @FXML
+    private TextField txtMovieTitle;
 }
