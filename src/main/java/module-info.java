@@ -4,6 +4,8 @@ module org.example.examproject {
     requires com.microsoft.sqlserver.jdbc;
     requires java.sql;
     requires java.naming;
+    requires org.example.examproject;
+    requires jdk.jshell;
 
 
     opens org.example.examproject to javafx.fxml;
