@@ -21,4 +21,8 @@ public class Category {
     public String getName() { return name; }
 
     public int getId() { return id; }
+
+    public void addToMovie(Movie movie) {
+        movies.add(movie);
+    }
 }

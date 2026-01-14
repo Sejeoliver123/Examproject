@@ -94,4 +94,8 @@ public class Movie {
 
     public Date getLastView() { return lastView; }
     public void  setLastView(Date lastView) { this.lastView = lastView; }
+
+    public void addToCategory(Category category) {
+        categories.add(category);
+    }
 }
