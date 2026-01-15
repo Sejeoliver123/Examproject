@@ -19,9 +19,9 @@
           <TreeTableColumn fx:id="tbvCollumCategory" prefWidth="75.0" text="Category" />
         </columns>
       </TreeTableView>
-      <TableView layoutX="135.0" layoutY="26.0" prefHeight="316.0" prefWidth="135.0">
+      <TableView fx:id="tbvCategory" layoutX="135.0" layoutY="26.0" prefHeight="316.0" prefWidth="135.0">
         <columns>
-          <TableColumn prefWidth="132.00001525878906" text="Category Name" />
+          <TableColumn fx:id="tbvColCategoryName" prefWidth="132.00001525878906" text="Category Name" />
         </columns>
       </TableView>
    </children>

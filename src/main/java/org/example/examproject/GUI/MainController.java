@@ -1,5 +1,7 @@
 package org.example.examproject.GUI;
 
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -7,11 +9,19 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import org.example.examproject.BE.Category;
 
 public class MainController {
 
     private MainModel model;
+    @FXML
+    private TableView<Category> tbvCategory;
+    @FXML
+    private TableColumn tbvColCategoryName;
 
     public MainController() {
         model = new MainModel();
@@ -37,8 +47,12 @@ public class MainController {
     }
 
     private void loadCategory() {
+        tbvColCategoryName.setCellValueFactory(new PropertyValueFactory<>("name"));
         try {
-            model.loadCategory();
+            FilteredList<Category> filteredList = new FilteredList<>(model.loadCategory());
+            SortedList<Category> sortedCategory = new SortedList<>(filteredList);
+            sortedCategory.comparatorProperty().bind(tbvCategory.comparatorProperty());
+            tbvCategory.setItems(sortedCategory);
         } catch (Exception e) {
             showError(e);
         }
