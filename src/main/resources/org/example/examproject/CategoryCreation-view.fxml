@@ -8,7 +8,7 @@
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.examproject.GUI.CategoryCreationController">
    <children>
       <TextField fx:id="txtCategoryTitle" layoutX="11.0" layoutY="31.0" />
-      <Button fx:id="btnAddCategory" layoutX="14.0" layoutY="75.0" mnemonicParsing="false" text="AddCategory" />
+      <Button fx:id="btnAddCategory" layoutX="14.0" layoutY="75.0" mnemonicParsing="false" onAction="#onCreateCategory" text="Add Category" />
       <Text layoutX="14.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Category Name" wrappingWidth="106.13668823242188" />
    </children>
 </AnchorPane>

@@ -41,4 +41,9 @@ public class MainModel {
         }
     }
 
+    public void createCategory(Category category) throws Exception {
+        Category createdCategory = logic.createCategory(category);
+        categories.add(createdCategory);
+    }
+
 }

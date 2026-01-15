@@ -12,7 +12,7 @@ public class CategoryDAO implements ICategory {
     public List<Category> getAllCategory() throws Exception {
         ArrayList<Category> categories = new ArrayList<>();
         try(Connection conn = DBConnector.getStaticConnection(); Statement stmt = conn.createStatement()) {
-            String sql = "Select * from Catefory";
+            String sql = "Select * from Category";
             ResultSet rs = stmt.executeQuery(sql);
             while (rs.next()) {
                 int id = rs.getInt("Id");
