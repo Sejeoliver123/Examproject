@@ -23,7 +23,7 @@
         </columns>
       </TableView>
       <Button layoutY="131.0" mnemonicParsing="false" onAction="#onAddMovieToCategory" prefHeight="26.0" prefWidth="135.0" text="add Movie Category" />
-      <Button layoutY="171.0" mnemonicParsing="false" onAction="#onRemoveMorviFromCategory" prefHeight="26.0" prefWidth="135.0" text="rem. Movie Category" />
+      <Button layoutY="171.0" mnemonicParsing="false" onAction="#onRemoveMovieFromCategory" prefHeight="26.0" prefWidth="135.0" text="rem. Movie Category" />
       <Button layoutX="135.0" layoutY="354.0" mnemonicParsing="false" onAction="#onCategoryremove" prefHeight="25.0" prefWidth="135.0" text="remove Category" />
       <Button layoutX="375.0" layoutY="329.0" mnemonicParsing="false" onAction="#onEditMovie" prefHeight="25.0" prefWidth="135.0" text="edit Movie " />
       <Button layoutX="375.0" layoutY="380.0" mnemonicParsing="false" onAction="#onMovieRemove" prefHeight="25.0" prefWidth="135.0" text="remove Movie " />

@@ -29,4 +29,7 @@ public class Category {
     public void removeMovie(Movie movie) {
         movies.remove(movie);
     }
+    public ArrayList<Movie> getMovies() {
+        return movies;
+    }
 }

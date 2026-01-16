@@ -102,4 +102,10 @@ public class Movie {
     public void removeCategory(Category category) {
         categories.remove(category);
     }
+    public boolean isInCategory(Category category) {
+        return categories.contains(category);
+    }
+    public ArrayList<Category> getCategories() {
+        return categories;
+    }
 }

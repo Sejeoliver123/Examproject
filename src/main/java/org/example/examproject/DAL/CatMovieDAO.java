@@ -30,7 +30,7 @@ public class CatMovieDAO implements ICatMovie {
 
     @Override
     public void createCatMovie(Movie movie, Category category) throws Exception {
-        String sql = "INSERT INTO dbo.catmuvie (MovieId,CategoryId) VALUES (?,?)";
+        String sql = "INSERT INTO dbo.catMovie (MovieId,CategoryId) VALUES (?,?)";
         try (Connection conn = DBConnector.getStaticConnection()){
             PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 

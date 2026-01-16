@@ -5,7 +5,6 @@ import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -113,17 +112,44 @@ public class MainController {
 
     @FXML
     private void onAddMovieToCategory(ActionEvent actionEvent) {
-
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/examproject/addMovieCategory-view.fxml"));
+        try {
+            Scene scene = new Scene(fxmlLoader.load());
+            AddMovieCategoryController addMovieCategoryController = fxmlLoader.getController();
+            addMovieCategoryController.setModelAndSetOpCombobox(model);
+            Stage stage = new Stage();
+            stage.setScene(scene);
+            stage.show();
+        } catch (Exception e){
+            showError(e);
+        }
     }
 
     @FXML
-    private void onRemoveMorviFromCategory(ActionEvent actionEvent) {
-
+    private void onRemoveMovieFromCategory(ActionEvent actionEvent) {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/examproject/removeMovieCategory-view.fxml"));
+        try {
+            Scene scene = new Scene(fxmlLoader.load());
+            RemoveMovieCategoryController removeMovieCategoryController = fxmlLoader.getController();
+            removeMovieCategoryController.setModelAndSetOpCombobox(model);
+            Stage stage = new Stage();
+            stage.setScene(scene);
+            stage.show();
+        } catch (Exception e){
+            showError(e);
+        }
     }
 
     @FXML
     private void onCategoryremove(ActionEvent actionEvent) {
-
+        Category category = tbvCategory.getSelectionModel().getSelectedItem();
+        if(category != null) {
+            try{
+                model.deleteCategory(category);
+            } catch (Exception e) {
+                showError(e);
+            }
+        }
     }
 
     @FXML
@@ -133,7 +159,14 @@ public class MainController {
 
     @FXML
     private void onMovieRemove(ActionEvent actionEvent) {
-
+        Movie movie = tbvMovie.getSelectionModel().getSelectedItem();
+        if(movie != null) {
+            try {
+                model.deleteMovie(movie);
+            } catch (Exception e) {
+                showError(e);
+            }
+        }
     }
 
     @FXML

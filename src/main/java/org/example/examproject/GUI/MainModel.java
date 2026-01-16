@@ -41,6 +41,13 @@ public class MainModel {
         }
     }
 
+    public ObservableList<Movie> getMovies() {
+        return movies;
+    }
+    public ObservableList<Category> getCategories() {
+        return categories;
+    }
+
     public void createCategory(Category category) throws Exception {
         Category createdCategory = logic.createCategory(category);
         categories.add(createdCategory);
