@@ -5,6 +5,7 @@ module org.example.examproject {
     requires java.sql;
     requires java.naming;
     requires javafx.graphics;
+    requires java.desktop;
 
 
     opens org.example.examproject to javafx.fxml;

@@ -84,10 +84,13 @@ public class Movie {
     public int getId() { return id; }
 
     public String getName() { return name; }
+    public void setName(String name) { this.name = name; }
 
     public float getIMDBRating() { return IMDBRating; }
+    public void setIMDBRating(float IMDBRating) { this.IMDBRating = IMDBRating; }
 
     public String getFileLink() { return  fileLink; }
+    public void setFileLink(String fileLink) { this.fileLink = fileLink; }
 
     public float getPersonalRating() { return personalRating; }
     public void setPersonalRating(float personalRating) { this.personalRating = personalRating; }

@@ -154,7 +154,20 @@ public class MainController {
 
     @FXML
     private void onEditMovie(ActionEvent actionEvent) {
-
+        Movie movie = tbvMovie.getSelectionModel().getSelectedItem();
+        if(movie != null){
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/examproject/editMovie-view.fxml"));
+            try {
+                Scene scene = new Scene(fxmlLoader.load());
+                EditMovieController editMovieController = fxmlLoader.getController();
+                editMovieController.setModelAndMovie(model,movie);
+                Stage stage = new Stage();
+                stage.setScene(scene);
+                stage.show();
+            } catch (Exception e) {
+                showError(e);
+            }
+        }
     }
 
     @FXML
@@ -171,6 +184,13 @@ public class MainController {
 
     @FXML
     private void onWatchMovie(ActionEvent actionEvent) {
+        try {
+            if (tbvMovie.getSelectionModel().getSelectedItem() != null){
+                model.watchMovie(tbvMovie.getSelectionModel().getSelectedItem());
+            }
 
+        } catch (Exception e) {
+            showError(e);
+        }
     }
 }

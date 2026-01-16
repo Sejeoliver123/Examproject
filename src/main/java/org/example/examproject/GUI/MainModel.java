@@ -7,6 +7,10 @@ import org.example.examproject.BE.Movie;
 import org.example.examproject.BLL.MainLogic;
 import org.example.examproject.DAL.*;
 
+import java.awt.*;
+import java.io.File;
+import java.net.URL;
+import java.util.Date;
 import java.util.List;
 
 public class MainModel {
@@ -63,6 +67,17 @@ public class MainModel {
         movie.addToCategory(category);
         category.addToMovie(movie);
     }
+    public void updateMovie(Movie movie) throws Exception {
+        logic.updateMovie(movie);
+        if(movie != null) {
+            for (int i = 0; i < movies.size(); i++) {
+                if(movies.get(i).getId() == movie.getId()){
+                    movies.set(i,movie);
+                    break;
+                }
+            }
+        }
+    }
 
     public void deleteCategory(Category category) throws Exception {
         logic.deleteCategory(category);
@@ -78,6 +93,14 @@ public class MainModel {
         logic.deleteCatMovie(movie,category);
         movie.removeCategory(category);
         category.removeMovie(movie);
+    }
+    public void watchMovie(Movie movie) throws Exception{
+        File file = new File(movie.getFileLink());
+        if(file.exists()) {
+            Desktop.getDesktop().open(file);
+            movie.setLastView(new Date());
+            updateMovie(movie);
+        }
     }
 
 }
