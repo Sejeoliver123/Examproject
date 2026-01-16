@@ -40,19 +40,19 @@ public class MovieDAO implements IMovie {
         int contentType = 0;
         String sql;
         if(movie.getPersonalRating() != 0 && movie.getLastView() != null) {
-            sql = "INSERT INTO dbo.movie (name,IMBDRating,filelink,personalrating,lastview) VALUES (?,?,?,?,?)";
+            sql = "INSERT INTO dbo.movie (name,IMDBRating,filelink,personalrating,lastview) VALUES (?,?,?,?,?)";
             contentType = 1;
         }
         else if(movie.getPersonalRating() != 0) {
-            sql = "INSERT INTO dbo.movie (name,IMBDRating,filelink,personalrating) VALUES (?,?,?,?)";
+            sql = "INSERT INTO dbo.movie (name,IMDBRating,filelink,personalrating) VALUES (?,?,?,?)";
             contentType = 2;
         }
         else if(movie.getLastView() != null) {
-            sql = "INSERT INTO dbo.movie (name,IMBDRating,filelink,lastview) VALUES (?,?,?,?)";
+            sql = "INSERT INTO dbo.movie (name,IMDBRating,filelink,lastview) VALUES (?,?,?,?)";
             contentType = 3;
         }
         else {
-            sql = "INSERT INTO dbo.movie (name,IMBDRating,filelink) VALUES (?,?,?)";
+            sql = "INSERT INTO dbo.movie (name,IMDBRating,filelink) VALUES (?,?,?)";
         }
         try(Connection conn = DBConnector.getStaticConnection()){
             PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
