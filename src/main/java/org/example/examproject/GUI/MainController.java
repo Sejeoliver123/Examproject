@@ -27,6 +27,12 @@ public class MainController {
     private TableColumn tbvCollumIMDBscore;
     @FXML
     private TableColumn tbvCollumUserScore;
+    @FXML
+    private TextField txtTitleFilter;
+    @FXML
+    private TextField txtIMDBFilter;
+    @FXML
+    private TableColumn tbvCollumCategory;
 
     public MainController() {
         model = new MainModel();
@@ -47,8 +53,27 @@ public class MainController {
         tbvCollumTitle.setCellValueFactory(new PropertyValueFactory<>("name"));
         tbvCollumUserScore.setCellValueFactory(new PropertyValueFactory<>("personalRating"));
         tbvCollumIMDBscore.setCellValueFactory(new PropertyValueFactory<>("IMDBRating"));
+        tbvCollumCategory.setCellValueFactory(new PropertyValueFactory<>("Categories"));
         try {
             FilteredList<Movie> filteredList = new FilteredList<>(model.loadMovie());
+            txtTitleFilter.textProperty().addListener((observableValue, oldValue, newValue) -> {
+                filteredList.setPredicate((movie) -> {
+                    if (newValue == null || newValue.isEmpty()) {
+                        return true;
+                    }
+                    String lowerCaseFilter = newValue.toLowerCase();
+                    return movie.getName().toLowerCase().contains(lowerCaseFilter);
+                });
+            });
+            txtIMDBFilter.textProperty().addListener((observableValue, oldValue, newValue) -> {
+                filteredList.setPredicate((movie) -> {
+                    if (newValue == null || newValue.isEmpty()) { return true; }
+                    try { float filterValue = Float.parseFloat(newValue); return movie.getIMDBRating() >= filterValue; }
+                    catch (NumberFormatException e) {  String IMDBAsString = String.valueOf(movie.getIMDBRating());
+                        return IMDBAsString.contains(newValue);
+                    }
+                });
+            });
             SortedList<Movie> sortedMovie = new SortedList<>(filteredList);
             sortedMovie.comparatorProperty().bind(tbvMovie.comparatorProperty());
             tbvMovie.setItems(sortedMovie);
