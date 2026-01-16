@@ -15,17 +15,17 @@ public class MovieDAO implements IMovie {
             String sql = "select * from movie";
             ResultSet rs = stmt.executeQuery(sql);
             while (rs.next()) {
-                if(rs.getDate("lastview") != null && rs.getFloat("personalrating") != 0){
-                    movies.add(new Movie(rs.getInt("id"), rs.getString("name"),rs.getFloat("IMBDRating"), rs.getString("filelink"),rs.getFloat("personalrating"),rs.getDate("lastview")));
+                if(rs.getDate("lastview") != null && rs.getFloat("personalrating") != 0.0){
+                    movies.add(new Movie(rs.getInt("id"), rs.getString("name"),rs.getFloat("IMDBRating"), rs.getString("filelink"),rs.getFloat("personalrating"),rs.getDate("lastview")));
                 }
-                else if (rs.getFloat("personalrating") != 0) {
-                    movies.add(new Movie( rs.getInt("id"), rs.getString("name"), rs.getFloat("IMBDRating"), rs.getString("filelink"), rs.getFloat("personalrating") ));
+                else if (rs.getFloat("personalrating") != 0.0) {
+                    movies.add(new Movie( rs.getInt("id"), rs.getString("name"), rs.getFloat("IMDBRating"), rs.getString("filelink"), rs.getFloat("personalrating") ));
                 }
                 else if (rs.getDate("lastview") != null) {
-                    movies.add(new Movie( rs.getInt("id"), rs.getString("name"), rs.getFloat("IMBDRating"), rs.getString("filelink"), rs.getDate("lastview") ));
+                    movies.add(new Movie( rs.getInt("id"), rs.getString("name"), rs.getFloat("IMDBRating"), rs.getString("filelink"), rs.getDate("lastview") ));
                 }
                 else {
-                    movies.add(new Movie( rs.getInt("id"), rs.getString("name"), rs.getFloat("IMBDRating"), rs.getString("filelink") ));
+                    movies.add(new Movie( rs.getInt("id"), rs.getString("name"), rs.getFloat("IMDBRating"), rs.getString("filelink") ));
                 }
             }
         }
