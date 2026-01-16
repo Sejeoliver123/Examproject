@@ -75,8 +75,8 @@ public class MainController {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/examproject/MovieCreation-view.fxml"));
         try {
             Scene scene = new Scene(fxmlLoader.load());
-            CategoryCreationController categoryCreationController = fxmlLoader.getController();
-            categoryCreationController.setModel(model);
+            MovieCreationController movieCreationController = fxmlLoader.getController();
+            movieCreationController.setModel(model);
             Stage stage = new Stage();
             stage.setScene(scene);
             stage.show();
