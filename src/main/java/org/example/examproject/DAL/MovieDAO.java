@@ -62,13 +62,13 @@ public class MovieDAO implements IMovie {
             switch (contentType) {
                 case 1:
                     stmt.setFloat(4,movie.getPersonalRating());
-                    stmt.setDate(5, (Date) movie.getLastView());
+                    stmt.setDate(5, new java.sql.Date(movie.getLastView().getTime()));
                     break;
                 case 2:
                     stmt.setFloat(4,movie.getPersonalRating());
                     break;
                 case 3:
-                    stmt.setDate(4, (Date) movie.getLastView());
+                    stmt.setDate(4, new java.sql.Date(movie.getLastView().getTime()));
                     break;
                 default:
                     break;
@@ -117,14 +117,14 @@ public class MovieDAO implements IMovie {
                 stmt.setFloat(2,movie.getIMDBRating());
                 stmt.setString(3, movie.getFileLink());
                 stmt.setFloat(4,movie.getPersonalRating());
-                stmt.setDate(5, (Date) movie.getLastView());
+                stmt.setDate(5, new java.sql.Date(movie.getLastView().getTime()));
                 stmt.setInt(6,movie.getId());
             }
             else if(movie.getLastView() != null) {
                 stmt.setString(1,movie.getName());
                 stmt.setFloat(2,movie.getIMDBRating());
                 stmt.setString(3, movie.getFileLink());
-                stmt.setDate(4, (Date) movie.getLastView());
+                stmt.setDate(4, new java.sql.Date(movie.getLastView().getTime()));
                 stmt.setInt(5,movie.getId());
             }
             else if (movie.getPersonalRating() != 0) {
