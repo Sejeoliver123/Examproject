@@ -25,4 +25,8 @@ public class Category {
     public void addToMovie(Movie movie) {
         movies.add(movie);
     }
+
+    public void removeMovie(Movie movie) {
+        movies.remove(movie);
+    }
 }

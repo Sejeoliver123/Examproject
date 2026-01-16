@@ -46,4 +46,31 @@ public class MainModel {
         categories.add(createdCategory);
     }
 
+    public void createMovie(Movie movie) throws Exception {
+        Movie createdMovie = logic.createMovie(movie);
+        movies.add(createdMovie);
+    }
+
+    public void createCatMovie(Movie movie, Category category) throws Exception {
+        logic.createCatmovie(movie, category);
+        movie.addToCategory(category);
+        category.addToMovie(movie);
+    }
+
+    public void deleteCategory(Category category) throws Exception {
+        logic.deleteCategory(category);
+        categories.remove(category);
+    }
+
+    public void deleteMovie(Movie movie) throws Exception {
+        logic.deleteMovie(movie);
+        movies.remove(movie);
+    }
+
+    public void deleteCatMovie(Movie movie, Category category) throws  Exception {
+        logic.deleteCatMovie(movie,category);
+        movie.removeCategory(category);
+        category.removeMovie(movie);
+    }
+
 }

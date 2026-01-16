@@ -98,4 +98,8 @@ public class Movie {
     public void addToCategory(Category category) {
         categories.add(category);
     }
+
+    public void removeCategory(Category category) {
+        categories.remove(category);
+    }
 }
